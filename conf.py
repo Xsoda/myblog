@@ -19,7 +19,7 @@ import alabaster
 #blog_path = 'blog'
 
 # The “title” for the blog, used in acthive pages.  Default is ``'Blog'``.
-blog_title = u'My Blog Blog'
+blog_title = u'''Xsoda's Blog'''
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
@@ -337,6 +337,8 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MyBlogdoc'
+htmlhelp_basename = 'MyBlog-doc'
 
+# -- Options for travis deploy ----------------------------------------------
 
+github_pages = '../xsoda.github.io'
