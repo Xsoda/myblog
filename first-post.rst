@@ -40,8 +40,7 @@ graphviz测试
 
 \ ``python``\ 代码高亮测试
 
-  .. code-block::
-     :language: python
+  .. code-block:: python
      :linenos:
 
      def test(a, b, c):
@@ -64,29 +63,28 @@ graphviz测试
 
 \ ``C``\ 代码高亮测试
 
-  .. code-block::
-     :language: c
+  .. code-block:: c
      :linenos:
 
-    #include <stdio.h>
-    #include <stdlib.h>
+     #include <stdio.h>
+     #include <stdlib.h>
 
-    int test(int a, int b, int c) {
-       if (a >= 0 && b >= a)
-          return a / b;
-       else if (a >= 0 && c >= a)
-          return a / c;
-       else
-          return a * b + c;
-    }
+     int test(int a, int b, int c) {
+        if (a >= 0 && b >= a)
+           return a / b;
+        else if (a >= 0 && c >= a)
+           return a / c;
+        else
+           return a * b + c;
+     }
 
-    int add(int start, int end) {
-       int r = 0;
-       if (end > 0 && start < end)
-          for (int i = start; i < end; i++)
-             r += i;
-       else if (end < 0 && start > end)
-          for (int i = start; i > end; i--)
-             r += i;
-       return r;
-    }
+     int add(int start, int end) {
+        int r = 0;
+        if (end > 0 && start < end)
+           for (int i = start; i < end; i++)
+              r += i;
+        else if (end < 0 && start > end)
+           for (int i = start; i > end; i--)
+              r += i;
+        return r;
+     }
