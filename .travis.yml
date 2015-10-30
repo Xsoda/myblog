@@ -2,11 +2,22 @@ language: python
 
 cache: pip
   directories:
-    - $HOME/.cache/pip
+  - $HOME/.cache/pip
 
 cache: apt
   directories:
-    - $HOME/.cache/apt
+  - $HOME/.cache/apt
+
+addons:
+  apt:
+    sources:
+    - deadsnakes
+    - ubuntu-toolchain-r-test
+    packages:
+    - graphviz
+  pip:
+    packages:
+    - ablog
 
 python:
   - 2.7
