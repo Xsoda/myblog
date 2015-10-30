@@ -1,4 +1,3 @@
-
 .. My Blog post example, created by `ablog start` on Oct 30, 2015.
 
 .. post:: Oct 30, 2015
@@ -15,3 +14,19 @@ in `Post Excerpts and Images
 that you can refer to posts by file name, e.g. ``:ref:`first-post``` results
 in :ref:`first-post`. Find out more at `Cross-Referencing Blog Pages
 <http://ablog.readthedocs.org/manual/cross-referencing-blog-pages/>`_.
+
+graphviz测试
+--------------------
+
+.. graphviz::
+
+   digraph {
+     A -- B;
+     A -- C;
+     B -- D;
+     B -- E;
+     C -- F;
+     C -- G;
+     E -- H;
+     E -- I;
+  };
