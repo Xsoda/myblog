@@ -19,11 +19,11 @@ import alabaster
 #blog_path = 'blog'
 
 # The “title” for the blog, used in acthive pages.  Default is ``'Blog'``.
-blog_title = '''Blog'''
+blog_title = u'''Blog'''
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = 'http://xsoda.github.io'
+blog_baseurl = 'http://xsoda.github.io/'
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -181,9 +181,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = '''Xsoda's Blog'''
-copyright = '2015, Xsoda'
-author = 'Xsoda'
+project = u'''Xsoda's Blog'''
+copyright = u'2015, Xsoda'
+author = u'Xsoda'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

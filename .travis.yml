@@ -1,13 +1,12 @@
 language: python
 
-cache:
-  - apt
-  - pip
+cache: pip
+  directories:
+    - $HOME/.cache/pip
 
-addons:
-  apt:
-    packages:
-      - graphviz
+cache: apt
+  directories:
+    - $HOME/.cache/apt
 
 python:
   - 2.7
@@ -15,10 +14,8 @@ python:
 virtualenv:
   system_site_packages: true
 
-before_install:
-  - sudo apt-get remove graphviz
-  - sudo apt-get remove graphviz-dev
-  - sudo apt-get remove graphviz-doc
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
   - sudo apt-get install graphviz
   - pip install ablog
 
