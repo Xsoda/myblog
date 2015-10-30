@@ -22,7 +22,7 @@ graphviz测试
 
   .. graphviz::
   
-     digraph {
+     graph G {
        A -- B;
        A -- C;
        B -- D;
