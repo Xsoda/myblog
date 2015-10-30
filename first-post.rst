@@ -20,16 +20,15 @@ graphviz测试
 
 简单二叉树的表示:
 
-.. graphviz::
-   :caption: Simple binary tree
-
-   digraph {
-     A -- B;
-     A -- C;
-     B -- D;
-     B -- E;
-     C -- F;
-     C -- G;
-     E -- H;
-     E -- I;
-  };
+  .. graphviz::
+  
+     digraph {
+       A -- B;
+       A -- C;
+       B -- D;
+       B -- E;
+       C -- F;
+       C -- G;
+       E -- H;
+       E -- I;
+    };
