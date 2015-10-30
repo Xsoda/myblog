@@ -1,33 +1,17 @@
 language: python
 
-sudo: required
-
-cache:
-  directories:
-  - $HOME/.cache/pip
-  - $HOME/.cache/apt
-
-addons:
-  apt:
-    sources:
-    - deadsnakes
-    - ubuntu-toolchain-r-test
-    packages:
-    - graphviz
-  pip:
-    packages:
-    - ablog
-
 python:
   - 2.7
 
 virtualenv:
   system_site_packages: true
 
-before_cache:
-  - rm -f $HOME/.cache/pip/log/debug.log
-  - pip install -U ablog
-  - apt-get install graphviz
+before_install:
+  - pip install ablog
+  - sudo apt-get remove graphviz
+  - sudo apt-get remove graphviz-dev
+  - sudo apt-get remove graphviz-doc
+  - sudo apt-get install graphviz
 
 script:
   - dot -V
