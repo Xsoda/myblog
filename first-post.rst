@@ -23,6 +23,7 @@ graphviz测试
   .. graphviz::
 
      graph G {
+       node [shape=circle];
        A -- B;
        A -- C;
        B -- D;
