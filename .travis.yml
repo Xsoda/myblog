@@ -1,6 +1,6 @@
 language: python
 
-sudo: false
+sudo: required
 
 cache:
   directories:
@@ -26,8 +26,11 @@ virtualenv:
 
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
+  - pip install -U ablog
+  - apt-get install graphviz
 
 script:
+  - dot -V
   - ablog build
 
 after_success:
