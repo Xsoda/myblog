@@ -18,10 +18,11 @@ in :ref:`first-post`. Find out more at `Cross-Referencing Blog Pages
 graphviz测试
 --------------------
 
+简单二叉树的表示:
+
 .. graphviz::
 
-   graph btree {
-     node [shape=circle];
+   digraph {
      A -- B;
      A -- C;
      B -- D;
