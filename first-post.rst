@@ -20,7 +20,8 @@ graphviz测试
 
 .. graphviz::
 
-   digraph {
+   graph btree {
+     node [shape=circle];
      A -- B;
      A -- C;
      B -- D;
