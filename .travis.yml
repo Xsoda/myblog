@@ -16,4 +16,4 @@ after_success:
   - git config --global user.name "Xsoda"
   - git config --global user.email "Xsoda@live.com"
   - git config --global push.default simple
-  - ablog deploy --push-quietly --github-token="518770f09a2b0ca59ec3a0657f42ee974d0b2dbe" -m="`git log -1 --pretty=%B`"
+  - ablog deploy --push-quietly --github-token=TRAVIS_DEPLOY_TOKEN -m="`git log -1 --pretty=%B`"
