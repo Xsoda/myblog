@@ -21,6 +21,7 @@ graphviz测试
 简单二叉树的表示:
 
 .. graphviz::
+   :caption: Simple binary tree
 
    digraph {
      A -- B;
