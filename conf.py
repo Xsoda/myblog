@@ -341,4 +341,4 @@ htmlhelp_basename = 'MyBlog-doc'
 
 # -- Options for travis deploy ----------------------------------------------
 
-github_pages = u'Xsoda'
+github_pages = 'Xsoda'
