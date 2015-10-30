@@ -3,25 +3,11 @@ language: python
 python:
   - 2.7
 
-sudo: required
-
-cache:
-  - pip
-  - apt
-
-cache:
-  directories:
-  - $HOME/.cache
-
-
 virtualenv:
   system_site_packages: true
 
-before_cache:
-  - rm -f $HOME/.cache/pip/log/debug.log
-
 before_install:
-  - pip install ablog --cache-dir $HOME/.cache
+  - pip install ablog
   - sudo apt-get remove graphviz
   - sudo apt-get remove graphviz-dev
   - sudo apt-get remove graphviz-doc
