@@ -1,5 +1,14 @@
 language: python
 
+cache:
+  - apt
+  - pip
+
+addons:
+  apt:
+    packages:
+      - graphviz
+
 python:
   - 2.7
 

@@ -31,4 +31,6 @@ graphviz测试
        C -- G;
        E -- H;
        E -- I;
+       F -- J;
+       F -- K;
     };

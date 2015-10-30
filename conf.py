@@ -19,11 +19,11 @@ import alabaster
 #blog_path = 'blog'
 
 # The “title” for the blog, used in acthive pages.  Default is ``'Blog'``.
-blog_title = u'''Xsoda's Blog'''
+blog_title = '''Blog'''
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = u'True'
+blog_baseurl = 'http://xsoda.github.io'
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -35,7 +35,7 @@ blog_baseurl = u'True'
 # links. Dictionary keys are what should be used in ``post`` directive
 # to refer to the author.  Default is ``{}``.
 blog_authors = {
-    'Xsoda': ('Xsoda', None),
+    'Xsoda': ('Xsoda', 'http://github.com/xsoda'),
 }
 
 
@@ -181,9 +181,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'My Blog'
-copyright = u'2015, Xsoda'
-author = u'Xsoda'
+project = '''Xsoda's Blog'''
+copyright = '2015, Xsoda'
+author = 'Xsoda'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -236,7 +236,7 @@ pygments_style = 'sphinx'
 #keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
