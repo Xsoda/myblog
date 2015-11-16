@@ -43,14 +43,14 @@
 
 先定义节点结构体:
 
-  .. literalinclude: ./_static/binary-tree-iterator-non-recurion.c
+  .. literalinclude: ./code/binary-tree-iterator-non-recurion.c
      :encoding: utf-8
      :language: c
      :lines: 5-10
 
 然后根据先序遍历的规则写出遍历器:
 
-  .. literalinclude: ./_static/binary-tree-iterator-non-recursion.c
+  .. literalinclude: ./code/binary-tree-iterator-non-recursion.c
      :encoding: utf-8
      :language: c
      :lines: 51-72
@@ -62,7 +62,7 @@
 
 构造二叉树的过程省略, 见源代码\ [#source]_\ . 使用如下的代码先输出先序遍历的结果来看看遍历的过程是否正确
 
-  .. literalinclude: ./_static/binary-tree-iterator-non-recursion.c
+  .. literalinclude: ./code/binary-tree-iterator-non-recursion.c
      :encoding: utf-8
      :language: c
      :lines: 74-80
@@ -74,7 +74,7 @@
 
 遍历的结果是正确的. 下面在遍历过程中加入计算过程：
 
-  .. literalinclude: ./_static/binary-tree-iterator-non-recursion.c
+  .. literalinclude: ./code/binary-tree-iterator-non-recursion.c
      :encoding: utf-8
      :language: c
      :lines: 82-104
@@ -92,4 +92,4 @@
 
 第一篇博客耽搁了这么久总算完成了.
 
-  .. [#source] 本文测试代码: ./_static/binary-tree-iterator-non-recursion.c
+  .. [#source] 本文测试代码: ./code/binary-tree-iterator-non-recursion.c
