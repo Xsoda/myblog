@@ -18,7 +18,7 @@ import alabaster
 # A path relative to the configuration directory for blog archive pages.
 #blog_path = 'blog'
 
-# The “title” for the blog, used in acthive pages.  Default is ``'Blog'``.
+# The `title' for the blog, used in acthive pages.  Default is ``'Blog'``.
 blog_title = u'''Blog'''
 
 # Base URL for the website, required for generating feeds.

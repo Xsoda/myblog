@@ -18,7 +18,7 @@
         graph [ordering="out"];
         node [shape=circle];
         5 -> 4;
-        5 -> 8
+        5 -> 8;
         4 -> 11;
         null0 [shape=point];
         4 -> null0;
