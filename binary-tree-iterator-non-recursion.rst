@@ -45,7 +45,6 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
-     :linenothreshold: 5
      :encoding: utf-8
      :language: c
      :lines: 5-10
@@ -54,7 +53,6 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
-     :linenothreshold: 60
      :encoding: utf-8
      :language: c
      :lines: 51-72
@@ -68,7 +66,6 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
-     :linenothreshold: 74
      :encoding: utf-8
      :language: c
      :lines: 74-80
