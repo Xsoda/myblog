@@ -43,20 +43,20 @@
 
 先定义节点结构体:
 
-  .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 5-10
+.. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
+   :linenos:
+   :encoding: utf-8
+   :language: c
+   :lines: 5-10
 
 然后根据先序遍历的规则写出遍历器:
 
-  .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 51-72
-     :emphasize-lines: 60-69
+.. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
+   :linenos:
+   :encoding: utf-8
+   :language: c
+   :lines: 51-72
+   :emphasize-lines: 60-69
 
 60-69行为关键的回溯代码, 规则是当某一个父节点有右孩子且父节点不是从右孩子的路径回溯表明右孩子还没有遍历过, 则返回右孩子.
 例如图中节点7已经没有左孩子和右孩子了, 下一步应该是回溯到其父节点11, 再获取到节点2. 当遍历到节点1时, 很明显已经没有节点
@@ -64,11 +64,11 @@
 
 构造二叉树的过程省略, 见源代码\ [#source]_\ . 使用如下的代码先输出先序遍历的结果来看看遍历的过程是否正确
 
-  .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 74-80
+.. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
+   :linenos:
+   :encoding: utf-8
+   :language: c
+   :lines: 74-80
 
 编译后输出如下：
 
@@ -77,12 +77,12 @@
 
 遍历的结果是正确的. 下面在遍历过程中加入计算过程：
 
-  .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 82-104
-     :emphasize-lines: 94
+.. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
+   :linenos:
+   :encoding: utf-8
+   :language: c
+   :lines: 82-104
+   :emphasize-lines: 94
 
 基本过程与遍历完全相同, 只是在回溯过程中减去了节点的值, 在遍历时加上节点的值.
 
@@ -96,4 +96,4 @@
 
 第一篇博客耽搁了这么久总算完成了.
 
-  .. [#source] 本文测试代码: `<../_static/binary-tree-iterator-non-recursion.c>`_
+.. [#source] 本文测试代码: `<../_static/binary-tree-iterator-non-recursion.c>`_
