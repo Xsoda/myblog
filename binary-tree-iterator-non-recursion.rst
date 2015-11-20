@@ -45,6 +45,7 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
+     :linenothreshold: 5
      :encoding: utf-8
      :language: c
      :lines: 5-10
@@ -53,6 +54,7 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
+     :linenothreshold: 60
      :encoding: utf-8
      :language: c
      :lines: 51-72
@@ -66,6 +68,7 @@
 
   .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
      :linenos:
+     :linenothreshold: 74
      :encoding: utf-8
      :language: c
      :lines: 74-80
@@ -96,4 +99,4 @@
 
 第一篇博客耽搁了这么久总算完成了.
 
-  .. [#source] 本文测试代码: `<./code/binary-tree-iterator-non-recursion.c>`_
+  .. [#source] 本文测试代码: `<../_static/binary-tree-iterator-non-recursion.c>`_
