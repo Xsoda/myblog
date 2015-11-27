@@ -1,8 +1,6 @@
-
 .. _about:
 
 About Xsoda
 ============================
 
-The world wants to know more about you.
-
+这是一个记录零碎算法的地方.
