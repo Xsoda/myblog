@@ -53,6 +53,7 @@
 
 .. literalinclude:: ./code/binary-tree-iterator-non-recursion.c
    :linenos:
+   :lineno-start: 51
    :encoding: utf-8
    :language: c
    :lines: 51-72
