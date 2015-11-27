@@ -127,7 +127,7 @@ html_sidebars = {
 
 # Link to `Font Awesome`_ at `Bootstrap CDN`_ and use icons in sidebars
 # and post footers.  Default: ``False``
-fontawesome_link_cdn = True
+#fontawesome_link_cdn = True
 
 # Sphinx_ theme already links to `Font Awesome`_.  Default: ``False``
 #fontawesome_included = False
