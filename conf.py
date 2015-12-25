@@ -249,7 +249,7 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_button': False,
+    'github_button': True,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -279,7 +279,7 @@ html_static_path = ['_static']
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-html_extra_path = ['code']
+html_extra_path = ['code', 'image']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
