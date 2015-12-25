@@ -251,7 +251,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     'travis_button': True,
     'github_button': True,
-    'github_user': 'xsoda',
+    'github_user': 'Xsoda',
     'github_repo': 'myblog',
     'description': 'Thought & Learn & Remember'
 }
