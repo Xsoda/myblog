@@ -13,7 +13,8 @@ HPACK中的霍夫曼编码
 
 下图是简单的霍夫曼编码树的展示，简洁说明5个符号的查表构造过程：
 
-  .. image:: _static/hpack_huffman.svg
+  .. figure:: _static/hpack_huffman.svg
+     :align: center
 
      霍夫曼编码树与下文将提到的查表构造过程
 
