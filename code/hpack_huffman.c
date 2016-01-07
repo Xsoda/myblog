@@ -936,43 +936,94 @@ char *huff_write_bits(char *dst, int *bits_offset, huff_sym_t *sym) {
 }
 
 int huff_encode(char *dst, int dst_len, const char *src, int src_len) {
-	 int i;
-	 int bits_offset;
-	 char *origin = dst;
+	 int i, bits, off, idx, remain;
+	 unsigned int code;
 	 if (src_len == -1)
 		  src_len = strlen(src);
-	 bits_offset = 0;
+	 bits = 0;
 	 for (i = 0; i < src_len; i++) {
 		  huff_sym_t *sym = &huff_sym[(unsigned char)src[i]];
-		 dst = huff_write_bits(dst, &bits_offset, sym);
+		  code = sym->code;
+		  remain = sym->bits;
+		  idx = bits / 8;
+		  off = bits % 8;
+		  if (off) {
+				if (8 - off >= remain) {
+					 dst[idx] |= code << (8 - remain - off);
+					 bits += remain;
+					 remain = 0;
+				} else {
+					 dst[idx] |= code >> (remain - (8 - off));
+					 bits += 8 - off;
+					 remain -= 8 - off;
+				}
+		  }
+		  if (remain) {
+				assert(bits % 8 == 0);
+				for (; remain >= 8; remain -= 8) {
+					 code = sym->code;
+					 idx = bits / 8;
+					 code <<= 32 - remain;
+					 code >>= 24;
+					 dst[idx] = (unsigned char)code;
+					 bits += 8;
+				}
+		  }
+		  if (remain > 0) {
+				code = sym->code;
+				idx = bits / 8;
+				code <<= 8 - remain;
+				dst[idx] = (unsigned char)code;
+				bits += remain;
+		  }
+		  if (bits > dst_len * 8) {
+				return dst_len;
+		  }
 	 }
-	 if (bits_offset) {
-		  *dst++ |= (1 << (8 - bits_offset)) - 1;
+	 if (bits % 8) {
+		  idx = bits / 8;
+		  off = bits % 8;
+		  dst[idx] |= (1 << (8 - off)) - 1;
+		  bits += 8 - off;
 	 }
-	 return dst - origin;
-}
-
-int read_4bits(const char *src, int *bits_offset) {
-	 char c = src[0];
-	 int off = *bits_offset;
-	  c <<= off;
-	  c >>= 4;
-	  if (off > 4) {
-		  c |= src[1] >> (8 % off);
-	  }
-	  off += 4;
-	 *bits_offset = off;
-	 return c;
+	 assert(bits % 8 == 0);
+	 return bits / 8;
 }
 
 int huff_decode(char *dst, int dst_len, const char *src, int src_len) {
-	 int s = 0, c;
-	 int bits_offset = 0;
-	 char *origin = dst;
+	 huff_decode_state_t *state;
+	 int cur = 0;
+	 int bits = 0;
+	 int max_bits = src_len * 8;
+	 int len = 0;
+	 unsigned char c = 0;
+	 do {
+		  int idx = bits / 8;
+		  int off = bits % 8;
+		  c = src[idx];
+		  c <<= off;
+		  c >>= 4;
+		  if (off > 4) {
+				c |= (unsigned char)src[idx + 1] >> (8 - off % 4);
+		  }
+		  bits += 4;
+		  state = &decode_state[cur][c];
+		  if (state->ending) {
+				dst[len++] = state->sym;
+				cur = 0;
+				if (huff_sym[state->sym].bits % 4)
+					 bits -= 4 - huff_sym[state->sym].bits % 4;
+		  } else {
+				cur = state->next;
+		  }
+	 } while (bits + 4 <= max_bits);
+	 dst[len] = 0;
+	 return len;
 }
 
 int main(int argc, char **argv) {
 	 char dst[32];
+	 char buf[64];
 	 int i, j, node_cnt;
 	 huff_decode_node_t *root;
    unsigned char split_bits[256][8];
@@ -1025,6 +1076,10 @@ int main(int argc, char **argv) {
       fprintf(stdout, "},\n");
    }
 	huff_encode(dst, sizeof(dst), "ABCDE", 5);
+	huff_decode(dst + 10, 100, dst, 5);
+#define HUFF_BITS "\xd0\x7a\xbe\x94\x10\x54\xd4\x44\xa8\x20\x05\x95\x04\x0b\x81\x66\xe0\x84\xa6\x2d\x1b\xff"
+	 i = huff_decode(dst, sizeof(dst), HUFF_BITS, sizeof(HUFF_BITS) - 1);
+	 j = huff_encode(buf, sizeof(buf), dst, i);
 	_CrtDumpMemoryLeaks();
    return 0;
 }
