@@ -58,9 +58,7 @@ E        111           3
 .. figure:: ./visio/huff_decode_state.png
    :align: center
 
-   解码树孩子索引示意图
-
-   黑色的数据位应该返回到数据位中，其他颜色的数据位足够解码出一个字节
+   部分解码树孩子索引示意图，彩色的位代表了完整字符的位编码
 
 解码树的生成
 ------------------
@@ -69,27 +67,27 @@ E        111           3
 
   #. 将所有编码分为4位一组，最长编码30位，所以最长8组
 
-  .. literalinclude:: ./code/hpack_huffman.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 1029, 1034-1051
+     .. literalinclude:: ./code/hpack_huffman.c
+        :linenos:
+        :encoding: utf-8
+        :language: c
+        :lines: 1029, 1034-1051
 
   #. 根据分割的位组构建解码树
 
-  .. literalinclude:: ./code/hpack_huffman.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 272-278, 841-880
+     .. literalinclude:: ./code/hpack_huffman.c
+        :linenos:
+        :encoding: utf-8
+        :language: c
+        :lines: 272-278, 841-880
 
   #. 为解码树的节点建立编号
 
-  .. literalinclude:: ./code/hpack_huffman.c
-     :linenos:
-     :encoding: utf-8
-     :language: c
-     :lines: 882-891
+     .. literalinclude:: ./code/hpack_huffman.c
+        :linenos:
+        :encoding: utf-8
+        :language: c
+        :lines: 882-891
 
 经过这些步骤后已经建立好一个解码树了，树中每个节点有16个孩子。这样我们解码时就可以根据
 4位组的值为孩子节点索引，从根节点开始行进解码。当解码完一个字符后，重新回到根节点，解码
@@ -148,6 +146,6 @@ E        111           3
 
 
 .. [#source] 本文源代码: `<../_static/hpack_huffman.c>`_
-.. [#http2.0] https://httpwg.github.io/specs/rfc7540.html
-.. [#hpack] https://httpwg.github.io/specs/rfc7541.html
-.. [#huffman] https://en.wikipedia.org/wiki/Huffman_coding
+.. [#http2.0] HTTP2.0 RFC: https://httpwg.github.io/specs/rfc7540.html
+.. [#hpack] HPACK RFC: https://httpwg.github.io/specs/rfc7541.html
+.. [#huffman] huffman编码: https://en.wikipedia.org/wiki/Huffman_coding
