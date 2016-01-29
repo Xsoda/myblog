@@ -109,7 +109,7 @@ E        111           3
      :language: c
      :lines: 278-284, 893-904
 
-完成后将\ ``state[55][16]``\ 的内容打印出来，就组成了静态的解码状态表。完整的表见源代码\ `[#source]_`\ 。
+完成后将\ ``state[55][16]``\ 的内容打印出来，就组成了静态的解码状态表。完整的表见源代码\ [#source]_\ 。
 
   .. literalinclude:: ./code/hpack_huffman.c
      :linenos:
@@ -142,7 +142,7 @@ E        111           3
      :language: c
      :lines: 938-991
 
-编码中所用到的符号表是在\ ``hpack`` [#hpack]_\ 中定义的，这里不在列出了。
+编码中所用到的符号表是在\ ``HPACK``\ 中定义的，这里不在列出了。
 
 
 .. [#source] 本文源代码: `<../_static/hpack_huffman.c>`_
