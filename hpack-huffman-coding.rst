@@ -60,6 +60,94 @@ E        111           3
 
    解码树孩子索引示意图
 
+   黑色的数据位应该返回到数据位中，其他颜色的数据位足够解码出一个字节
+
+解码树的生成
+------------------
+
+为了生成上图中解码树，需要先对编码表进行预处理，我的方法是
+
+  #. 将所有编码分为4位一组，最长编码30位，所以最长8组
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 1029, 1034-1051
+
+  #. 根据分割的位组构建解码树
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 272-278, 841-880
+
+  #. 为解码树的节点建立编号
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 882-891
+
+经过这些步骤后已经建立好一个解码树了，树中每个节点有16个孩子。这样我们解码时就可以根据
+4位组的值为孩子节点索引，从根节点开始行进解码。当解码完一个字符后，重新回到根节点，解码
+下一个字符。
+
+解码树的节点建立编号是为了下一步将解码树转换为状态机的形式，固定地编码在数据区。免去
+每次解码都要构建解码树的麻烦。
+
+转换为状态表
+--------------
+
+先定义如下的解码状态，先前的每个编码树节点将会转换16个状态，其实编码过的节点有54个。
+最大的编号为0x35。所以完全可以将\ ``ending``\ 和\ ``next``\ 合并为一个字节，节省
+三分之一的空间。然后对所有的节点进行序号编排，这个序号作为状态转移的依据。
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 278-284, 893-904
+
+完成后将\ ``state[55][16]``\ 的内容打印出来，就组成了静态的解码状态表。完整的表见源代码\ `[#source]_`\ 。
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 285-305
+
+解码
+-------------
+
+有了解码状态表后，就可以依据该表来进行解码了。
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 993-1022
+
+解码代码中需要仔细根据已解码的位长来计算待解码的数组索引和位索引。
+
+编码
+-------
+
+编码比较简单，计算好已编码的位长，来确定写入的数组索引和位偏移。最后不足8位的填充
+``EOS``\ .
+
+  .. literalinclude:: ./code/hpack_huffman.c
+     :linenos:
+     :encoding: utf-8
+     :language: c
+     :lines: 938-991
+
+编码中所用到的符号表是在\ ``hpack`` [#hpack]_\ 中定义的，这里不在列出了。
+
+
+.. [#source] 本文源代码: `<../_static/hpack_huffman.c>`_
 .. [#http2.0] https://httpwg.github.io/specs/rfc7540.html
 .. [#hpack] https://httpwg.github.io/specs/rfc7541.html
 .. [#huffman] https://en.wikipedia.org/wiki/Huffman_coding
