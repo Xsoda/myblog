@@ -164,9 +164,12 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.graphviz',
+    'sphinxcontrib.mermaid',
     'alabaster',
     'ablog',
 ]
+
+mermaid_output_format = 'raw'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates', ablog.get_html_templates_path()]

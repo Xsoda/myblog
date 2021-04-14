@@ -9,6 +9,7 @@ virtualenv:
 before_install:
   - pip install ablog
   - pip install pygments-style-github
+  - pip install sphinxcontrib-mermaid
   - sudo apt-get remove graphviz
   - sudo apt-get remove graphviz-dev
   - sudo apt-get remove graphviz-doc
