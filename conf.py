@@ -163,7 +163,6 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx.ext.graphviz',
     'sphinxcontrib.mermaid',
     'alabaster',
     'ablog',
