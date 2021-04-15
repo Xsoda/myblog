@@ -15,13 +15,18 @@ config.py
 
 安装\ ``sphinxcontrib-mermaid``\ 后, 在\ ``config.py``\ 中的加上扩展支持
 
-.. code:: python
+.. code-block:: python
+   :linenos:
 
    extensions = [
        'sphinxcontrib.mermaid',
        # ...
    ]
    mermaid_output_format = 'raw'
+   mermaid_version = ''
+   html_js_files = [
+       'js/mermaid.js'
+   ]
 
 如果需要生成\ ``png``\ 图片, 还需要安装\ ``nodejs``, ``mermaid``, ``mermaid-cli``\ 等
 包, 这里只是在浏览器中使用.
@@ -31,7 +36,8 @@ config.py
 
 在\ ``RST``\ 中加入
 
-::
+.. code-block::
+   :linenos:
 
    .. mermaid::
 
@@ -66,7 +72,8 @@ config.py
 普通二叉树图形
 --------------
 
-::
+.. code-block::
+   :linenos:
 
    .. mermaid::
 
